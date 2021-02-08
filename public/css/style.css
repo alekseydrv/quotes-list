@@ -1,0 +1,268 @@
+body {
+  font-family: 'Nunito';
+  margin: 0;
+}
+
+h1 {
+  margin: 10px 15px;
+}
+
+.blockquote-5 {
+  position: relative;
+  padding: 10px;
+  margin: 20px 15px;    
+  font-size: 16px;
+  border: 2px solid #337AB7;
+  box-shadow: 5px 5px 0 0 #337ab7;
+}
+
+.blockquote-5 cite {
+  color: #337AB7;
+  font-size: 12px;
+  padding-top: 20px;
+  display: block;
+}
+
+.quotes_block {
+  max-width: 728px;
+  margin: 0 auto;
+}
+
+.tags, .tags a {
+  font-size: 13px;
+  color: #757575;
+}
+
+.tags a {
+  margin: 0 5px;
+}
+
+.header {
+  height: 40px;
+  background-color: #333;
+  width: 100%;  
+  margin: 0;  
+}
+
+.header_block {
+  max-width: 728px;
+  margin: 0 auto;
+}
+
+.add_quote {
+  float: right;
+  padding: 5px 15px;
+  margin-top: 3px;
+}
+
+.add_quote a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* свойства модального окна */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1050;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in; 
+  -moz-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* при отображении модального окно */
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+  overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 500px;
+    margin: 30px auto;
+  }
+}
+
+/* свойства для блока, содержащего контент модального окна */ 
+.modal-content {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+    -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+}
+
+/* свойства для заголовка модального окна */
+.modal-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eceeef;
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* свойства для кнопки "Закрыть" */
+.close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  text-decoration: none;
+}
+
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .75;
+}
+
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 15px;
+  overflow: auto;
+}
+
+.flex-outer,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flex-outer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.flex-outer li,
+.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-inner {
+  padding: 0 8px;
+  justify-content: space-between;  
+}
+
+.flex-outer > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flex-outer li label,
+.flex-outer li p {
+  padding: 8px;
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.flex-outer > li > label,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}
+
+.flex-outer li p {
+  margin: 0;
+}
+
+.flex-outer li input:not([type='checkbox']),
+.flex-outer li textarea {
+  padding: 15px;
+  border: none;
+}
+
+.flex-outer li button {
+  margin-left: auto;
+  padding: 8px 16px;
+}
+
+.success-message {
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.homelink {
+  text-align: center;
+}
+
+.pagination {
+  display: inline-flex;
+  list-style-type: none;
+}
+
+.page-item {
+  margin: 0 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
